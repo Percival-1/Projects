@@ -30,7 +30,7 @@ solution = sm.dsolve(equation , x , ics = init_cond)
 # f_ext = 0
 new_F_ext = 0 # N
 m_val = 2 # kg
-k_val = 4 # N.m
+k_val = 6 # N.m
 c_val = 0.3 # SI unit
 
 # solution after putting constant values
@@ -41,7 +41,7 @@ sol = sol_sub.rhs
 solutions = sm.lambdify(t , sol)
 
 # Display the results
-t_var = np.linspace(0 , 90 , 501)
+t_var = np.linspace(0 , 30 , 301)
 
 x_var = np.real(solutions(t_var))
 
@@ -53,7 +53,7 @@ ax[0].grid(True)
 ax[0].set_xlabel('Displacement x(t)')
 ax[0].set_ylabel('Time t in sec')
 
-ax[1].set_xlim([0 , 90])
+ax[1].set_xlim([0 , 30])
 ax[1].set_ylim([-2 , 2])
 ax[1].grid(True)
 ax[1].set_xlabel('Time t in sec')
@@ -80,6 +80,5 @@ animation = FuncAnimation(
                 interval = 25,
                 repeat = False
                 )
-animation.save('d.gif')
-
+animation.save('Damped OOscillation.gif')
 plt.show()
